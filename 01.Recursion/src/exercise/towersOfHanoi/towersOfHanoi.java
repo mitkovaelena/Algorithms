@@ -24,11 +24,11 @@ public class towersOfHanoi {
             source.add(i);
             sb.append(i).append(", ");
         }
+
         sb.setLength(sb.lastIndexOf(","));
-        sb.append("\nDestination: \n" + "Spare: \n\n");
+        sb.append("\nDestination: \nSpare: \n\n");
 
         hanoiAlgo(n, source, destination, spare);
-
         System.out.println(sb.toString().trim());
     }
 
@@ -46,13 +46,12 @@ public class towersOfHanoi {
         destination.add(source.remove(source.size() - 1));
 
         print();
-
     }
 
     private static void print() {
-        sb.append("Step #" + step++ + ": Moved disk").append("\n");
-        sb.append("Source: " + Arrays.toString(source.toArray()).replaceAll("[\\[\\]]", "")).append("\n");
-        sb.append("Destination: " + Arrays.toString(destination.toArray()).replaceAll("[\\[\\]]", "")).append("\n");
-        sb.append("Spare: " + Arrays.toString(spare.toArray()).replaceAll("[\\[\\]]", "")).append("\n\n");
+        sb.append("Step #").append(step++).append(": Moved disk").append("\n");
+        sb.append("Source: ").append(Arrays.toString(source.toArray()).replaceAll("[\\[\\]]", "")).append("\n");
+        sb.append("Destination: ").append(Arrays.toString(destination.toArray()).replaceAll("[\\[\\]]", "")).append("\n");
+        sb.append("Spare: ").append(Arrays.toString(spare.toArray()).replaceAll("[\\[\\]]", "")).append("\n\n");
     }
 }

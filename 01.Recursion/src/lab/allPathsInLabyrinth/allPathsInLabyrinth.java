@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class allPathsInLabyrinth {
+public class AllPathsInLabyrinth {
     private static char[][] map;
-    private static char[][] visitedCells;
+    private static boolean[][] visitedCells;
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -14,7 +14,7 @@ public class allPathsInLabyrinth {
         int m = Integer.parseInt(reader.readLine());
 
         map = new char[n][m];
-        visitedCells = new char[n][m];
+        visitedCells = new boolean[n][m];
         for (int i = 0; i < map.length; i++) {
             char[] line = reader.readLine().toCharArray();
             for (int j = 0; j < map[i].length; j++) {
@@ -43,11 +43,11 @@ public class allPathsInLabyrinth {
     }
 
     private static void unmarkAsVisited(int row, int col) {
-        visitedCells[row][col] = '0';
+        visitedCells[row][col] = false;
     }
 
     private static void markAsVisited(int row, int col) {
-        visitedCells[row][col] = '1';
+        visitedCells[row][col] = true;
     }
 
     private static boolean isFree(int row, int col) {
@@ -55,7 +55,7 @@ public class allPathsInLabyrinth {
     }
 
     private static boolean isVisited(int row, int col) {
-        return visitedCells[row][col] == '1';
+        return visitedCells[row][col];
     }
 
     private static boolean isExit(int row, int col) {

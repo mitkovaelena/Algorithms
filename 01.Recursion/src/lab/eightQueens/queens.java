@@ -1,6 +1,6 @@
 package lab.eightQueens;
 
-public class queens {
+public class Queens {
     private static final int NUMBER_OF_QUEENS = 8;
 
     public static void main(String[] args) {
