@@ -75,28 +75,28 @@ public class SortingAlgos {
                 }
     }
 
-    private static void mergeSort(List<Integer> nums, int r, int l) {
-        if (r >= l) {
+    private static void mergeSort(List<Integer> nums, int lo, int hi) {
+        if (lo >= hi) {
             return;
         }
-        int middle = r + (l - r) / 2;
-        mergeSort(nums, r, middle);
-        mergeSort(nums, middle + 1, l);
-        merge(nums, r, middle, l);
+        int middle = lo + (hi - lo) / 2;
+        mergeSort(nums, lo, middle);
+        mergeSort(nums, middle + 1, hi);
+        merge(nums, lo, middle, hi);
     }
 
-    private static void merge(List<Integer> nums, int r, int middle, int l) {
+    private static void merge(List<Integer> nums, int lo, int mid, int hi) {
         int[] helper = new int[nums.size()];
 
-        for (int i = r; i <= l; i++) {
+        for (int i = lo; i <= hi; i++) {
             helper[i] = nums.get(i);
         }
 
-        int i = r;
-        int j = middle + 1;
-        int k = r;
+        int i = lo;
+        int j = mid + 1;
+        int k = lo;
 
-        while (i <= middle && j <= l) {             // Copy the smallest values from either the left or the right side
+        while (i <= mid && j <= hi) {             // Copy the smallest values from either the left or the right side
             if (helper[i] <= helper[j]) {
                 nums.set(k, helper[i]);
                 i++;
@@ -107,7 +107,7 @@ public class SortingAlgos {
             k++;
         }
 
-        while (i <= middle) {                       // Copy the rest of the left side of the array into the target array
+        while (i <= mid) {                       // Copy the rest of the left side of the array into the target array
             nums.set(k, helper[i]);
             k++;
             i++;
@@ -115,37 +115,37 @@ public class SortingAlgos {
     }
 
 
-    private static void quickSort(List<Integer> nums, int r, int l) {
-        if (r >= l) {
+    private static void quickSort(List<Integer> nums, int lo, int hi) {
+        if (lo >= hi) {
             return;
         }
 
-        int pivotInd = partition(nums, r, l);
-        quickSort(nums, r, pivotInd - 1);
-        quickSort(nums, pivotInd + 1, l);
+        int pivotInd = partition(nums, lo, hi);
+        quickSort(nums, lo, pivotInd - 1);
+        quickSort(nums, pivotInd + 1, hi);
     }
 
-    private static int partition(List<Integer> nums, int r, int l) {
-        int i = r;
-        int j = l + 1;
+    private static int partition(List<Integer> nums, int lo, int hi) {
+        int i = lo;
+        int j = hi + 1;
         while (true) {
-            while (nums.get(++i) < nums.get(r)) {
-                if (i == l) break;
+            while (nums.get(++i) < nums.get(lo)) {
+                if (i == hi) break;
             }
-            while (nums.get(r) < nums.get(--j)) {
-                if (j == r) break;
+            while (nums.get(lo) < nums.get(--j)) {
+                if (j == lo) break;
             }
 
             if (i >= j) break;
 
-            int temp = nums.get(j);       //swap smaller than array[r] goes left
-            nums.set(j, nums.get(i));       // bigger than array[r] goes right
+            int temp = nums.get(j);       //swap smaller than array[lo] goes left
+            nums.set(j, nums.get(i));       // bigger than array[lo] goes right
             nums.set(i, temp);
         }
 
         int temp = nums.get(j);           //swap the first element with the pivot
-        nums.set(j, nums.get(r));
-        nums.set(r, temp);
+        nums.set(j, nums.get(lo));
+        nums.set(lo, temp);
 
         return j;
     }

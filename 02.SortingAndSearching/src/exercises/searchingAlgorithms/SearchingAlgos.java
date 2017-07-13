@@ -29,22 +29,22 @@ public class SearchingAlgos {
     }
 
 
-    private static int binarySearch(List<Integer> nums, int key, int r, int l) {
-        if (r < l) {
-            int mid = r + (l - r) / 2;
+    private static int binarySearch(List<Integer> nums, int key, int lo, int hi) {
+        if (lo < hi) {
+            int mid = lo + (hi - lo) / 2;
             if (key < nums.get(mid)) {
-                return binarySearch(nums, key, r, mid);
+                return binarySearch(nums, key, lo, mid);
 
             } else if (key > nums.get(mid)) {
-                return binarySearch(nums, key, mid + 1, l);
+                return binarySearch(nums, key, mid + 1, hi);
 
             } else {
                 return mid;
             }
         }
 
-        if (r == l && nums.get(r) == key) {
-            return l;
+        if (lo == hi && nums.get(lo) == key) {
+            return hi;
         }
 
         return -1;
