@@ -1,4 +1,4 @@
-package lab.secCover;
+package lab.setCover;
 
 import org.junit.Assert;
 import org.junit.Test;
