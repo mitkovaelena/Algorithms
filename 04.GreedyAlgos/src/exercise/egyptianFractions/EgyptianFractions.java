@@ -23,13 +23,13 @@ public class EgyptianFractions {
         List<String> summants = new ArrayList<>();
 
         int i = 2;
-        double factor = Math.pow(10, 15);
+        double factor = Math.pow(10, 15);   //avoid mistakes caused by rounding
         while ( Math.round(sum * factor)/factor > 0){
             double fraction = 1.0/i;
             if(Math.round(sum * factor)/factor >= Math.round(fraction*factor)/factor) {
                 sum -= fraction;
                 summants.add("1/" + i);
-                i = (int) Math.floor(1.0 / sum);
+                i = (int) Math.floor(1.0 / sum);  //optimisation
             } else {
                 i ++;
             }
@@ -37,6 +37,5 @@ public class EgyptianFractions {
 
         System.out.print(input + " = " + summants.stream().map(String::valueOf)
                 .collect(Collectors.joining(" + ")));
-
     }
 }

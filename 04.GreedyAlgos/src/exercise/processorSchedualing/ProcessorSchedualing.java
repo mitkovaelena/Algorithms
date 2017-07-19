@@ -79,7 +79,7 @@ public class ProcessorSchedualing {
 
         int i = 1;
         for (Process task : tasks) {
-            if (i > maxDeadline) break;
+            if (i > maxDeadline) break;              //optimisation
 
             int count = 0;                           //check if the task can be completed
             for (Process process : chosenTasks) {
