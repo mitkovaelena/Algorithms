@@ -1,4 +1,4 @@
-package exercises.needles;
+package exercise.needles;
 
 import java.io.BufferedReader;
 import java.io.IOException;

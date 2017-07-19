@@ -1,4 +1,4 @@
-package exercises.sortingAlgorithms;
+package lab.sortingAlgorithms;
 
 import java.io.BufferedReader;
 import java.io.IOException;

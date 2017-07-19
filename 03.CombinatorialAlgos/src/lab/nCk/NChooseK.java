@@ -1,4 +1,4 @@
-package lab;
+package lab.nCk;
 
 import java.io.BufferedReader;
 import java.io.IOException;

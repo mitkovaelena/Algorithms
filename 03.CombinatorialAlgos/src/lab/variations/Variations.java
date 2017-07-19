@@ -1,4 +1,4 @@
-package lab;
+package lab.variations;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class Combinations {
+public class Variations {
     private static String[] set;
     private static String[] vector;
     private static int k;
@@ -18,36 +18,35 @@ public class Combinations {
         vector = new String[k];
 
 
-        //generateCombinationsWithoutRep(new boolean[set.length],   0, 0);
-        generateCombinationsWithRep(0, 0);
+        //generateVariationsWithoutRep(new boolean[set.length],   0);
+        generateVariationsWithRep(0);
     }
 
-    private static void generateCombinationsWithoutRep(boolean[] used, int index, int start) {
+    private static void generateVariationsWithoutRep(boolean[] used, int index) {
         if (index == k) {
             System.out.println(Arrays.stream(vector)
                     .collect(Collectors.joining(" ")));
         } else {
-            for (int i = start; i < set.length; i++) {
+            for (int i = 0; i < set.length; i++) {
                 if (!used[i]) {
                     used[i] = true;
                     vector[index] = set[i];
-                    generateCombinationsWithoutRep(used, index + 1, i + 1);
+                    generateVariationsWithoutRep(used, index + 1);
                     used[i] = false;
                 }
             }
         }
     }
 
-    private static void generateCombinationsWithRep(int index, int start) {
+    private static void generateVariationsWithRep(int index) {
         if (index == k) {
             System.out.println(Arrays.stream(vector)
                     .collect(Collectors.joining(" ")));
         } else {
-            for (int i = start; i < set.length; i++) {
+            for (int i = 0; i < set.length; i++) {
                 vector[index] = set[i];
-                generateCombinationsWithRep(index + 1, i);
+                generateVariationsWithRep(index + 1);
             }
         }
     }
 }
-

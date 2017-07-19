@@ -1,4 +1,4 @@
-package exercises.words;
+package exercise.words;
 
 import java.io.BufferedReader;
 import java.io.IOException;

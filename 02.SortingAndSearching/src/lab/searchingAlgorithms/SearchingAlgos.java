@@ -1,4 +1,4 @@
-package exercises.searchingAlgorithms;
+package lab.searchingAlgorithms;
 
 import java.io.BufferedReader;
 import java.io.IOException;

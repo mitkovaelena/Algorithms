@@ -1,4 +1,4 @@
-package exercises.inversionCount;
+package exercise.inversionCount;
 
 import java.io.BufferedReader;
 import java.io.IOException;
