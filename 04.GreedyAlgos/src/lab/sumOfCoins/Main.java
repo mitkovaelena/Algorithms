@@ -30,7 +30,7 @@ public class Main {
         for (int i = 0; i < elements.length; i++) {
             coins.add(elements[i]);
         }
-        
+
         Map<Integer, Integer> usedCoins = new TreeMap<>(Comparator.reverseOrder());
             for(Integer coin : coins){
                 int count = targetSum/coin;
