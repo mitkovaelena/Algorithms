@@ -33,7 +33,6 @@ public class LongestIncreasingSubsequence {
             sb.insert(0, seq[lastIndex] + " ");
             lastIndex = prev[lastIndex];
         }
-
         System.out.println(sb.toString().trim());
     }
 }
