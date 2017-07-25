@@ -1,4 +1,4 @@
-package exercise;
+package exercise.longestZigzagSubsequence;
 
 import java.io.BufferedReader;
 import java.io.IOException;

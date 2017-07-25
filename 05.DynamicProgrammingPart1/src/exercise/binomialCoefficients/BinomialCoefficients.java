@@ -1,4 +1,4 @@
-package exercise;
+package exercise.binomialCoefficients;
 
 import java.io.BufferedReader;
 import java.io.IOException;
