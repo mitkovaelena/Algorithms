@@ -10,42 +10,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class BestLecturesSchedule {
-
-    public static class Lecture implements Comparable<Lecture> {
-        private int startTime;
-        private int endTime;
-        private String name;
-
-        public Lecture(int startTime, int endTime, String name) {
-            this.startTime = startTime;
-            this.endTime = endTime;
-            this.name = name;
-        }
-
-        private String getName() {
-            return name;
-        }
-
-        private int getStartTime() {
-            return startTime;
-        }
-
-        private int getEndTime() {
-            return endTime;
-        }
-
-        @Override
-        public int compareTo(Lecture o) {
-            return Integer.compare(this.endTime, o.endTime);
-        }
-
-        @Override
-        public String toString() {
-            return startTime + "-" + endTime + " -> " + name;
-        }
-    }
-
-    public static void main(String[] args) throws IOException {
+        public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         int lecturesCount = Integer.parseInt(reader.readLine().substring(10));

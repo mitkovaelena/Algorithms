@@ -13,7 +13,7 @@ public class SumOfCoinsTests {
         int[] coins = new int[]{1, 2, 5, 10, 20, 50};
         int targetSum = 923;
 
-        Map<Integer, Integer> selectedCoins = Main.chooseCoins(coins, targetSum);
+        Map<Integer, Integer> selectedCoins = SumOfCoins.chooseCoins(coins, targetSum);
 
         Map<Integer, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put(50, 18);
@@ -36,7 +36,7 @@ public class SumOfCoinsTests {
         int[] coins = new int[]{1};
         int targetSum = 42;
 
-        Map<Integer, Integer> selectedCoins = Main.chooseCoins(coins, targetSum);
+        Map<Integer, Integer> selectedCoins = SumOfCoins.chooseCoins(coins, targetSum);
 
         Map<Integer, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put(1, 42);
@@ -56,7 +56,7 @@ public class SumOfCoinsTests {
         int[] coins = new int[]{3, 7};
         int targetSum = 11;
 
-        Main.chooseCoins(coins, targetSum);
+        SumOfCoins.chooseCoins(coins, targetSum);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class SumOfCoinsTests {
         int[] coins = new int[]{1, 2, 5};
         int targetSum = 78;
 
-        Map<Integer, Integer> selectedCoins = Main.chooseCoins(coins, targetSum);
+        Map<Integer, Integer> selectedCoins = SumOfCoins.chooseCoins(coins, targetSum);
 
         Map<Integer, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put(5, 15);
@@ -86,7 +86,7 @@ public class SumOfCoinsTests {
         int[] coins = new int[]{1, 2, 5};
         int targetSum = 2031154123;
 
-        Map<Integer, Integer> selectedCoins = Main.chooseCoins(coins, targetSum);
+        Map<Integer, Integer> selectedCoins = SumOfCoins.chooseCoins(coins, targetSum);
 
         Map<Integer, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put(5, 406230824);
@@ -108,7 +108,7 @@ public class SumOfCoinsTests {
         int[] coins = new int[]{1, 9, 10};
         int targetSum = 27;
 
-        Map<Integer, Integer> selectedCoins = Main.chooseCoins(coins, targetSum);
+        Map<Integer, Integer> selectedCoins = SumOfCoins.chooseCoins(coins, targetSum);
 
         Map<Integer, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put(10, 2);
@@ -129,7 +129,7 @@ public class SumOfCoinsTests {
         int[] coins = new int[]{1, 2, 3, 4};
         int targetSum = 1234;
 
-        Map<Integer, Integer> selectedCoins = Main.chooseCoins(coins, targetSum);
+        Map<Integer, Integer> selectedCoins = SumOfCoins.chooseCoins(coins, targetSum);
 
         Map<Integer, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put(4, 308);
@@ -150,7 +150,7 @@ public class SumOfCoinsTests {
         int[] coins = new int[]{1000, 200, 30, 4};
         int targetSum = 1234;
 
-        Map<Integer, Integer> selectedCoins = Main.chooseCoins(coins, targetSum);
+        Map<Integer, Integer> selectedCoins = SumOfCoins.chooseCoins(coins, targetSum);
 
         Map<Integer, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put(1000, 1);

@@ -9,37 +9,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class ProcessorSchedualing {
-
-    public static class Process implements Comparable<Process> {
-        private int index;
-        private int value;
-        private int deadline;
-
-        public Process(int index, int value, int deadline) {
-            this.index = index;
-            this.value = value;
-            this.deadline = deadline;
-        }
-
-        private int getIndex() {
-            return index;
-        }
-
-        private int getValue() {
-            return value;
-        }
-
-        private int getDeadline() {
-            return deadline;
-        }
-
-        @Override
-        public int compareTo(Process o) {
-            return Integer.compare(o.getValue(), this.getValue());
-        }
-    }
-
-    private static class DeadlineAscValueDesc implements Comparator<Process> {
+        private static class DeadlineAscValueDesc implements Comparator<Process> {
 
         @Override
         public int compare(Process process1, Process process2) {
@@ -83,9 +53,9 @@ public class ProcessorSchedualing {
 
             int count = 0;                           //check if the task can be completed
             for (Process process : chosenTasks) {
-                if (process.deadline <= task.deadline) count++;
+                if (process.getDeadline() <= task.getDeadline()) count++;
             }
-            if (count >= task.deadline) continue;
+            if (count >= task.getDeadline()) continue;
 
             chosenTasks.add(task);
             totalPrice += task.getValue();

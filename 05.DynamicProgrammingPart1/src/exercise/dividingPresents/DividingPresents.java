@@ -1,4 +1,4 @@
-package exercise.presents;
+package exercise.dividingPresents;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Presents {
+public class DividingPresents {
     private static int sum = 0;
     private static int[] presents;
     private static List<int[]> divisions;
@@ -31,6 +31,7 @@ public class Presents {
         int minDifference = Integer.MAX_VALUE;
         int firstPart = 0;
         int[] bestDivision = null;
+
         for (int[] division : divisions) {
             int divisionSum = Arrays.stream(division).sum();
             int difference = sum - 2 * divisionSum;
@@ -41,6 +42,7 @@ public class Presents {
                 firstPart = divisionSum;
             }
         }
+
         System.out.println("Difference: " + Math.abs(minDifference));
         if (minDifference > 0) {
             StringBuilder sb = new StringBuilder();
