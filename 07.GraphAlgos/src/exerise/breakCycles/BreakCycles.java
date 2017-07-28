@@ -69,9 +69,17 @@ public class BreakCycles {
             }
         }
 
-        for (String node : vertexEdges.keySet()) {
-            if (vertexEdges.get(node) == 1) {
-                outputCycle.remove(node);
+        while (true) {
+            boolean hasChanged = false;
+            for (String node : vertexEdges.keySet()) {
+                if (vertexEdges.get(node) == 1 && outputCycle.contains(node)) {
+                    outputCycle.remove(node);
+                    hasChanged = true;
+                    break;
+                }
+            }
+            if(!hasChanged){
+                break;
             }
         }
 
