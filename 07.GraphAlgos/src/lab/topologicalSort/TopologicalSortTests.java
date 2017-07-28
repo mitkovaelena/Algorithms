@@ -20,7 +20,7 @@ public class TopologicalSortTests {
         graph.put("F", new ArrayList<>());
 
         // Act
-        Collection<String> topSorter = TopologicalSortSR.topSort(graph);
+        Collection<String> topSorter = TopologicalSortDFS.topSort(graph);
 
         // Assert
         Assert.assertEquals("[A, B, E, D, C, F]", topSorter.toString());
@@ -38,7 +38,7 @@ public class TopologicalSortTests {
         graph.put("conditionals", new ArrayList<>(Arrays.asList("loops")));
 
         // Act
-        Collection<String> topSorter = TopologicalSortSR.topSort(graph);
+        Collection<String> topSorter = TopologicalSortDFS.topSort(graph);
 
         // Assert
         Assert.assertEquals("[IDEs, variables, conditionals, loops, bits]", topSorter.toString());
@@ -52,7 +52,7 @@ public class TopologicalSortTests {
         graph.put("A", new ArrayList<>());
 
         // Act
-        Collection<String> topSorted = TopologicalSortSR.topSort(graph);
+        Collection<String> topSorted = TopologicalSortDFS.topSort(graph);
 
         // Assert
         Assert.assertEquals("[A]", topSorted.toString());
@@ -66,7 +66,7 @@ public class TopologicalSortTests {
 
 
         // Act
-        Collection<String> topSorted = TopologicalSortSR.topSort(graph);
+        Collection<String> topSorted = TopologicalSortDFS.topSort(graph);
 
         // Assert
         Assert.assertEquals("[]", topSorted.toString());
@@ -87,7 +87,7 @@ public class TopologicalSortTests {
         graph.put("D", new ArrayList<>(Arrays.asList("A", "B")));
 
         // Act
-        Collection<String> topSorted = TopologicalSortSR.topSort(graph);
+        Collection<String> topSorted = TopologicalSortDFS.topSort(graph);
 
         // Assert
         Assert.assertEquals("[D, F, E, C, B, A, H, G]", topSorted.toString());
@@ -102,7 +102,7 @@ public class TopologicalSortTests {
         graph.put("Second", new ArrayList<>());
 
         // Act
-        Collection<String> topSorted = TopologicalSortSR.topSort(graph);
+        Collection<String> topSorted = TopologicalSortDFS.topSort(graph);
 
         // Assert
         Assert.assertEquals("[First, Second]", topSorted.toString());
@@ -118,7 +118,7 @@ public class TopologicalSortTests {
 
         // Act
         // Assert
-        Collection<String> topSorted = TopologicalSortSR.topSort(graph);
+        Collection<String> topSorted = TopologicalSortDFS.topSort(graph);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -136,6 +136,6 @@ public class TopologicalSortTests {
 
         // Act
         // Assert
-        Collection<String> topSorted = TopologicalSortSR.topSort(graph);
+        Collection<String> topSorted = TopologicalSortDFS.topSort(graph);
     }
 }

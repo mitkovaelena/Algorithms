@@ -32,23 +32,20 @@ public class DistanceBetweenVerticles {
     }
 
     private static int findShortestPath(int start, int finish) {
-        Map<Integer, Boolean> visited = new HashMap<>();
-        for(Integer node : graph.keySet()){
-            visited.put(node, false);
-        }
+        Set<Integer> visited = new HashSet<>();
 
         Deque<Pair<Integer, Integer>> queue = new ArrayDeque<>();
         queue.add(new Pair<>(start,0));
-        visited.put(start,true);
+        visited.add(start);
         while (!queue.isEmpty()) {
             Pair<Integer,Integer> node = queue.poll();
             if(node.getKey() == finish){
                 return node.getValue();
             }
             for (Integer child : graph.get(node.getKey())) {
-                if (!visited.get(child)) {
+                if (!visited.contains(child)) {
                     queue.add(new Pair<>(child, node.getValue()+1));
-                    visited.put(child,true);
+                    visited.add(child);
                 }
             }
         }

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class TopologicalSortSR {
+public class TopologicalSortDFS {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(reader.readLine());
@@ -26,38 +26,28 @@ public class TopologicalSortSR {
 
     public static List<String> topSort(Map<String, List<String>> graph) {
         List<String> sortedNodes = new ArrayList<>();
-        Map<String, List<String>> incomingNodes = new HashMap<>();
-        Map<String, Boolean> isVisited = new HashMap<>();
-        int visitedCount = 0;
+        Set<String> visited = new HashSet<>();
+        Set<String> cycles = new HashSet<>();
 
         for (String node : graph.keySet()) {
-            incomingNodes.putIfAbsent(node, new ArrayList<>());
-            isVisited.putIfAbsent(node, false);
-            for (String dependency : graph.get(node)) {
-
-                if(graph.get(dependency).contains(node)){
-                    throw new IllegalArgumentException();
-                }
-
-                incomingNodes.putIfAbsent(dependency, new ArrayList<>());
-                incomingNodes.get(dependency).add(node);
-            }
-        }
-
-        while (visitedCount < isVisited.size()) {
-            for (String node : incomingNodes.keySet()) {
-                if(!isVisited.get(node) && incomingNodes.get(node).isEmpty()){
-                    sortedNodes.add(node);
-                    isVisited.put(node, true);
-                    visitedCount++;
-                    for (String dependency : graph.get(node)) {
-                        incomingNodes.get(dependency).remove(node);
-                    }
-                    break;
-                }
-            }
+            topSortDFS(graph, node, visited, cycles, sortedNodes);
         }
 
         return sortedNodes;
+    }
+
+    private static void topSortDFS(Map<String,List<String>> graph, String node, Set<String> visited, Set<String> cycles, List<String> sortedNodes) {
+        if(cycles.contains(node)){
+            throw new IllegalArgumentException();
+        }
+        if(!visited.contains(node)) {
+            visited.add(node);
+            cycles.add(node);
+            for (String child : graph.get(node)){
+                topSortDFS(graph, child, visited, cycles, sortedNodes);
+            }
+            cycles.remove(node);
+            sortedNodes.add(0, node);
+        }
     }
 }
