@@ -47,8 +47,8 @@ public class Knapsack {
             for (int c = 0; c <= capacity; c++) {
                 maxPrice[i][c] = maxPrice[i - 1][c];
                 int remainingCapacity = c - items.get(i).getWeight();
-                if (remainingCapacity >= 0 && maxPrice[i-1][remainingCapacity] + items.get(i).getValue() > maxPrice[i][c]) {
-                    maxPrice[i][c] = maxPrice[i-1][remainingCapacity] + items.get(i).getValue();
+                if (remainingCapacity >= 0 && maxPrice[i - 1][remainingCapacity] + items.get(i).getValue() > maxPrice[i][c]) {
+                    maxPrice[i][c] = maxPrice[i - 1][remainingCapacity] + items.get(i).getValue();
                     isItemTaken[i][c] = true;
                 }
             }
@@ -60,17 +60,17 @@ public class Knapsack {
                 return o1.getName().compareTo(o2.getName());
             }
         });
-        int index = items.size()-1;
+        int index = items.size() - 1;
 
-        while (index >= 0){
+        while (index >= 0) {
             boolean isTaken = false;
             for (int i = 0; i <= capacity; i++) {
-                if (isItemTaken[index][i]){
+                if (isItemTaken[index][i]) {
                     isTaken = true;
                     break;
                 }
             }
-            if(isTaken){
+            if (isTaken) {
                 takenItems.add(items.get(index));
                 capacity -= items.get(index).getWeight();
             }

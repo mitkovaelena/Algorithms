@@ -8,8 +8,7 @@ import java.util.*;
 public class TopologicalSortTests {
 
     @Test
-    public void TestTopSortAcyclicGraph6Vertices()
-    {
+    public void TestTopSortAcyclicGraph6Vertices() {
         // Arrange
         Map<String, List<String>> graph = new LinkedHashMap<>();
         graph.put("A", new ArrayList<>(Arrays.asList("B", "C")));
@@ -27,8 +26,7 @@ public class TopologicalSortTests {
     }
 
     @Test
-    public void TestTopSortAcyclicGraph5Vertices()
-    {
+    public void TestTopSortAcyclicGraph5Vertices() {
         // Arrange
         Map<String, List<String>> graph = new LinkedHashMap<>();
         graph.put("IDEs", new ArrayList<>(Arrays.asList("variables", "loops")));
@@ -45,8 +43,7 @@ public class TopologicalSortTests {
     }
 
     @Test
-    public void TestTopSortGraph1Vertex()
-    {
+    public void TestTopSortGraph1Vertex() {
         // Arrange
         Map<String, List<String>> graph = new LinkedHashMap<>();
         graph.put("A", new ArrayList<>());
@@ -59,8 +56,7 @@ public class TopologicalSortTests {
     }
 
     @Test
-    public void TestTopSortEmptyGraph()
-    {
+    public void TestTopSortEmptyGraph() {
         // Arrange
         Map<String, List<String>> graph = new LinkedHashMap<>();
 
@@ -73,8 +69,7 @@ public class TopologicalSortTests {
     }
 
     @Test
-    public void TestTopSortAcyclicGraph8Vertices()
-    {
+    public void TestTopSortAcyclicGraph8Vertices() {
         // Arrange
         Map<String, List<String>> graph = new LinkedHashMap<>();
         graph.put("H", new ArrayList<>(Arrays.asList("G")));
@@ -94,8 +89,7 @@ public class TopologicalSortTests {
     }
 
     @Test
-    public void TestTopSortAcyclicGraph2Vertices()
-    {
+    public void TestTopSortAcyclicGraph2Vertices() {
         // Arrange
         Map<String, List<String>> graph = new LinkedHashMap<>();
         graph.put("First", new ArrayList<>(Arrays.asList("Second")));
@@ -109,8 +103,7 @@ public class TopologicalSortTests {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void TestTopSortGraph2VerticesWithCycle()
-    {
+    public void TestTopSortGraph2VerticesWithCycle() {
         // Arrange
         Map<String, List<String>> graph = new LinkedHashMap<>();
         graph.put("First", new ArrayList<>(Arrays.asList("Second")));
@@ -122,8 +115,7 @@ public class TopologicalSortTests {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void TestTopSortGraph7VerticesWithCycle()
-    {
+    public void TestTopSortGraph7VerticesWithCycle() {
         // Arrange
         Map<String, List<String>> graph = new LinkedHashMap<>();
         graph.put("A", new ArrayList<>(Arrays.asList("B")));

@@ -34,7 +34,6 @@ public class Salaries {
                 calculateSalaries(i);
             }
         }
-
         System.out.println(Arrays.stream(salaries).sum());
     }
 
@@ -43,7 +42,6 @@ public class Salaries {
         if (salaries[employee] != 0) {
             return salaries[employee];
         }
-
         if (employeesMatrix.get(employee).isEmpty()) {
             salaries[employee] = 1;
             return 1;

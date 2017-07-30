@@ -78,7 +78,7 @@ public class BreakCycles {
                     break;
                 }
             }
-            if(!hasChanged){
+            if (!hasChanged) {
                 break;
             }
         }

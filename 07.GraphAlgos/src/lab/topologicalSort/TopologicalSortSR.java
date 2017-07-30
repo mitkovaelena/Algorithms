@@ -35,10 +35,9 @@ public class TopologicalSortSR {
             isVisited.putIfAbsent(node, false);
             for (String dependency : graph.get(node)) {
 
-                if(graph.get(dependency).contains(node)){
+                if (graph.get(dependency).contains(node)) {
                     throw new IllegalArgumentException();
                 }
-
                 incomingNodes.putIfAbsent(dependency, new ArrayList<>());
                 incomingNodes.get(dependency).add(node);
             }
@@ -57,7 +56,6 @@ public class TopologicalSortSR {
                 }
             }
         }
-
         return sortedNodes;
     }
 }

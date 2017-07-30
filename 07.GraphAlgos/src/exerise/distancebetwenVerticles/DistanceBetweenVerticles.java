@@ -12,7 +12,7 @@ public class DistanceBetweenVerticles {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(reader.readLine());
         int p = Integer.parseInt(reader.readLine());
-         graph = new HashMap<>();
+        graph = new HashMap<>();
 
         for (int i = 0; i < n; i++) {
             String[] node = reader.readLine().split(":");
@@ -27,7 +27,7 @@ public class DistanceBetweenVerticles {
         for (int i = 0; i < p; i++) {
             String[] line = reader.readLine().split("-");
             System.out.printf("{%s, %s} -> %d\n",
-                    line[0], line[1],findShortestPath(Integer.parseInt(line[0]), Integer.parseInt(line[1])));
+                    line[0], line[1], findShortestPath(Integer.parseInt(line[0]), Integer.parseInt(line[1])));
         }
     }
 
@@ -35,16 +35,16 @@ public class DistanceBetweenVerticles {
         Set<Integer> visited = new HashSet<>();
 
         Deque<Pair<Integer, Integer>> queue = new ArrayDeque<>();
-        queue.add(new Pair<>(start,0));
+        queue.add(new Pair<>(start, 0));
         visited.add(start);
         while (!queue.isEmpty()) {
-            Pair<Integer,Integer> node = queue.poll();
-            if(node.getKey() == finish){
+            Pair<Integer, Integer> node = queue.poll();
+            if (node.getKey() == finish) {
                 return node.getValue();
             }
             for (Integer child : graph.get(node.getKey())) {
                 if (!visited.contains(child)) {
-                    queue.add(new Pair<>(child, node.getValue()+1));
+                    queue.add(new Pair<>(child, node.getValue() + 1));
                     visited.add(child);
                 }
             }

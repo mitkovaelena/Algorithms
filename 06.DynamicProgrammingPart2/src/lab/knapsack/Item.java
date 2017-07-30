@@ -1,7 +1,7 @@
 package lab.knapsack;
 
 
-public  class Item {
+public class Item {
     private String name;
     private int value;
     private int weight;

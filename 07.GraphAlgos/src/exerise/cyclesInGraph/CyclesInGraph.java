@@ -22,7 +22,6 @@ public class CyclesInGraph {
         }
 
         Set<String> visited = new HashSet<>();
-
         for (String node : graph.keySet()) {
             Set<String> cycle = new HashSet<>();
             boolean cyclic = searchForCycles(node, visited, cycle, null);
@@ -32,7 +31,6 @@ public class CyclesInGraph {
             }
         }
         System.out.println("Acyclic: Yes");
-
     }
 
     private static boolean searchForCycles(String node, Set<String> visited, Set<String> cycle, String parent) {

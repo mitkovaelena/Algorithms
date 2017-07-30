@@ -14,10 +14,9 @@ public class ConnectingCables {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         givenSet = Arrays.stream(reader.readLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
         constSet = Arrays.stream(givenSet).sorted().toArray();
-
         lcsTable = new int[constSet.length][givenSet.length];
 
-        System.out.println("Maximum pairs connected: " + findLCS(constSet.length-1, givenSet.length-1));
+        System.out.println("Maximum pairs connected: " + findLCS(constSet.length - 1, givenSet.length - 1));
     }
 
     private static int findLCS(int x, int y) {

@@ -24,7 +24,6 @@ public class AreasInMatrix {
         for (Character ch : areas.keySet()) {
             System.out.printf("Letter '%c' -> %d\n", ch, areas.get(ch));
         }
-
     }
 
     private static int findAreas() {

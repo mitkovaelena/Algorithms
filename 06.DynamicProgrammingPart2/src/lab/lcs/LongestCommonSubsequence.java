@@ -15,7 +15,7 @@ public class LongestCommonSubsequence {
         seq2 = reader.readLine().toCharArray();
         lcsTable = new int[seq1.length][seq2.length];
 
-        System.out.println(findLCS(seq1.length-1, seq2.length-1));
+        System.out.println(findLCS(seq1.length - 1, seq2.length - 1));
     }
 
     private static int findLCS(int x, int y) {

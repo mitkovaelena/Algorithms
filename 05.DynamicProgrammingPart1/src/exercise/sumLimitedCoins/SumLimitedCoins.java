@@ -3,8 +3,10 @@ package exercise.sumLimitedCoins;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class SumLimitedCoins {
     private static int sum = 0;
@@ -45,8 +47,7 @@ public class SumLimitedCoins {
                 System.arraycopy(crntDivision, 0, newArr, 0, k);
                 divisions.add(newArr);
             }
-        }
-        else {
+        } else {
             for (int i = start; i < coins.length; i++) {
                 if (!used[i]) {
                     used[i] = true;

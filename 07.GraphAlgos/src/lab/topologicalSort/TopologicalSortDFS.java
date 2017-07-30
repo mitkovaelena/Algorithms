@@ -36,14 +36,14 @@ public class TopologicalSortDFS {
         return sortedNodes;
     }
 
-    private static void topSortDFS(Map<String,List<String>> graph, String node, Set<String> visited, Set<String> cycles, List<String> sortedNodes) {
-        if(cycles.contains(node)){
+    private static void topSortDFS(Map<String, List<String>> graph, String node, Set<String> visited, Set<String> cycles, List<String> sortedNodes) {
+        if (cycles.contains(node)) {
             throw new IllegalArgumentException();
         }
-        if(!visited.contains(node)) {
+        if (!visited.contains(node)) {
             visited.add(node);
             cycles.add(node);
-            for (String child : graph.get(node)){
+            for (String child : graph.get(node)) {
                 topSortDFS(graph, child, visited, cycles, sortedNodes);
             }
             cycles.remove(node);

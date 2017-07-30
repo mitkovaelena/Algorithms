@@ -8,8 +8,7 @@ import java.util.*;
 public class ConnectedComponentsTests {
 
     @Test
-    public void TestGraphConnectedComponents9Vertices()
-    {
+    public void TestGraphConnectedComponents9Vertices() {
         // Arrange
         List<List<Integer>> graph = new ArrayList<>();
 
@@ -53,8 +52,7 @@ public class ConnectedComponentsTests {
     }
 
     @Test
-    public void TestGraphConnectedComponents1Vertex()
-    {
+    public void TestGraphConnectedComponents1Vertex() {
         // Arrange
         List<List<Integer>> graph = new ArrayList<>();
 
@@ -108,8 +106,7 @@ public class ConnectedComponentsTests {
     }
 
     @Test
-    public void TestGraphConnectedComponents7Vertices()
-    {
+    public void TestGraphConnectedComponents7Vertices() {
         // Arrange
         List<List<Integer>> graph = new ArrayList<>();
 
@@ -154,8 +151,7 @@ public class ConnectedComponentsTests {
     }
 
     @Test
-    public void TestGraphConnectedComponents4Vertices()
-    {
+    public void TestGraphConnectedComponents4Vertices() {
         // Arrange
         List<List<Integer>> graph = new ArrayList<>();
 
