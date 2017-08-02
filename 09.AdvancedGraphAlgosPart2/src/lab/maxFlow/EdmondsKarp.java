@@ -1,11 +1,14 @@
 package lab.maxFlow;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 
 public class EdmondsKarp {
     private static int[] parents;
     private static int[][] graph;
+    private static List<List<Integer>> paths = new ArrayList<>();
 
     public static int findMaxFlow(int[][] targetGraph) {
         int maxFlow = 0;
@@ -21,15 +24,19 @@ public class EdmondsKarp {
         while (BFS(start, end)) {               // While we can find a path from source to sink
             int pathFlow = Integer.MAX_VALUE;
             int crntNode = end;
+            List<Integer> newPath = new ArrayList<>();
             while (crntNode != start) {
                 int prevNode = parents[crntNode];
-
+                if(crntNode != end) {
+                    newPath.add(crntNode);
+                }
                 if (pathFlow > graph[prevNode][crntNode]) {
                     pathFlow = graph[prevNode][crntNode];
                 }
                 crntNode = prevNode;
             }
 
+            paths.add(newPath);
             maxFlow += pathFlow;
             crntNode = end;
             while (crntNode != start) {
@@ -61,5 +68,10 @@ public class EdmondsKarp {
         }
         return visited[dest];
     }
+
+    public static List<List<Integer>> getPaths() {
+        return paths;
+    }
+
 }
 
