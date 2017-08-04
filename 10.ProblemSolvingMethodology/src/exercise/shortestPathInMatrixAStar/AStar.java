@@ -30,7 +30,7 @@ public class AStar {
                             current.getCol() + j < 0 || current.getCol() + j >= map[0].length) continue;
 
                     Node node = new Node(current.getRow() + i, current.getCol() + j);
-                    if (!nodeCost.containsKey(node) || nodeCost.get(node).compareTo(nodeCost.get(current) +  map[current.getRow()][current.getCol()]) >= 0) {
+                    if (!nodeCost.containsKey(node) || nodeCost.get(node).compareTo(nodeCost.get(current) + map[current.getRow()][current.getCol()]) >= 0) {
                         nodeParent.put(node, current);
                         nodeCost.put(node, nodeCost.get(current) + map[current.getRow()][current.getCol()]);
                         node.setF(nodeCost.get(node) + getH(node, goal));

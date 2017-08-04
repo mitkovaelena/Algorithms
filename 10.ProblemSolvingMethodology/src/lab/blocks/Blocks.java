@@ -1,4 +1,4 @@
-package lab;
+package lab.blocks;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class Blocks {
         block = new char[4];
 
         char a = 'A';
-        for (int i = 0 ; i < n; i++, a++) {
+        for (int i = 0; i < n; i++, a++) {
             set[i] = a;
         }
         findBlocks(new boolean[set.length], 0);
@@ -64,7 +64,7 @@ public class Blocks {
     }
 
     private static String rotateBlock(String block) {
-        StringBuilder sb =  new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.append(block.charAt(2)).append(block.charAt(0)).append(block.charAt(3)).append(block.charAt(1));
         foundBlocks.add(sb.toString());
         return sb.toString();
