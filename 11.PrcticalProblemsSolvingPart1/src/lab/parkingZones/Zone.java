@@ -1,4 +1,4 @@
-package exercise.zones;
+package lab.parkingZones;
 
 public class Zone {
     private String type;

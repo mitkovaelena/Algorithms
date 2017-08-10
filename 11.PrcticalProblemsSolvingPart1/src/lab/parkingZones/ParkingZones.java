@@ -1,4 +1,4 @@
-package exercise.zones;
+package lab.parkingZones;
 
 import java.io.BufferedReader;
 import java.io.IOException;
