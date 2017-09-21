@@ -10,15 +10,17 @@ public class Drawing {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(reader.readLine());
 
-        draw(n);
+        drawFigure(n);
     }
 
-    private static void draw(int n) {
+    private static void drawFigure(int n) {
+
         if (n == 0) {
             return;
         }
+
         System.out.println(String.join("", Collections.nCopies(n, "*")));
-        draw(n - 1);
+        drawFigure(n - 1);
         System.out.println(String.join("", Collections.nCopies(n, "#")));
     }
 }

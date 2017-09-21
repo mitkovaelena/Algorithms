@@ -30,7 +30,7 @@ public class SearchingAlgos {
 
 
     private static int binarySearch(List<Integer> nums, int key, int lo, int hi) {
-        if (lo < hi) {
+        if (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
             if (key < nums.get(mid)) {
                 return binarySearch(nums, key, lo, mid);
@@ -42,11 +42,6 @@ public class SearchingAlgos {
                 return mid;
             }
         }
-
-        if (lo == hi && nums.get(lo) == key) {
-            return hi;
-        }
-
         return -1;
     }
 
